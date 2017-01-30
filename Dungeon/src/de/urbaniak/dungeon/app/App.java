@@ -21,16 +21,18 @@ public class App {
 		App world = new App();
 		world.build();		
 		world.createPlayer();
+		world.play();
+		world.sayGoodbye();
 
 	}
 	
 	public void build(){
 		
-		s_0_0 = new Space("Dungeon entrance");
-		s_0_1 = new Space("Cave");
-		s_1_0 = new Space("Labor");
+		s_0_0 = new Space("Dungeons entrance");
+		s_0_1 = new Space("Bloody cave");
+		s_1_0 = new Space("Biology laboratory");
 		s_1_1 = new Space("Stalagmite corridor");
-		s_1_2 = new Space("Library");
+		s_1_2 = new Space("Old library");
 		s_2_0 = new Space("Cooling chamber");
 		s_2_1 = new Space("Brood chamber");
 		
@@ -49,33 +51,75 @@ public class App {
 		s_2_1.setSideSpace("north", s_1_1);
 		s_2_1.setSideSpace("west", s_2_0);
 		
-		//System.out.println(s_1_1.getSideSpace("south").getName());
-		
 	}
 	
 	public void createPlayer(){
 		
-		//Scanner scanner = new Scanner(System.in);		
-		
-		//System.out.println("[Dungeon] Bitte geben Sie einen Spielernamen ein > ");
-		
-		//String playerName = scanner.next();
-			
-		String playerName = "Master";
-		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("[Dungeon] Bitte geben Sie einen Spielernamen ein > ");
+		String playerName = scanner.nextLine();
 		player = new Player(playerName);
-		
 		player.setCurrentSpace(s_0_0);
-
-
-		player.move("east");
-		player.move("east");
-		player.move("south");
-
 		
-		
-		//System.out.println("Willkommen in Dungeon " + player.getName());
-		//System.out.println("[Dungeon] Dein aktueller Ort > " + player.getCurrentSpace().getName());
+		System.out.println("Willkommen im Dungeon " + player.getName());
+		System.out.println("[Spielzuege] w => nach Norden gehen");
+		System.out.println("[Spielzuege] d => nach Osten gehen");
+		System.out.println("[Spielzuege] s => nach Sueden gehen");
+		System.out.println("[Spielzuege] a => nach Westen gehen");
+		System.out.println("[Spielzuege] y => Gegenstand aufsammeln");
+		System.out.println("[Spielzuege] x => Gegenstand fallenlassen");
+		System.out.println("[Spielzuege] c => Inventar anzeigen");
+		System.out.println("[Spielzuege] q => Dungeon verlassen");
+		player.getCurrentSpace().showEnvironment();
+	}
+
+	public void play(){
+
+		Scanner scanner = new Scanner(System.in);
+
+		while(true){
+
+			System.out.println("[Dungeon] Was moechtest Du tun " + player.getName() + "?");
+			String decision = scanner.next();
+
+			switch(decision){
+
+				case "w":	player.move("north");
+							break;
+
+				case "d":	player.move("east");
+							break;
+
+				case "s":	player.move("south");
+							break;
+
+				case "a":	player.move("west");
+							break;
+
+				case "y":	player.pickItem();
+							player.getCurrentSpace().showEnvironment();
+							break;
+
+				case "x":	player.dropItem();
+							player.getCurrentSpace().showEnvironment();
+							break;
+
+				case "c":	player.showInventory();
+							break;
+
+				case "q":	return;
+
+				default:
+					System.out.println("[Dungeon] Ungueltige Wahl");
+			}
+
+		}
+
+	}
+
+
+	public void sayGoodbye(){
+		System.out.println("Du verlaesst nun Dungeon. Wir sehen uns wieder...");
 	}
 	
 }

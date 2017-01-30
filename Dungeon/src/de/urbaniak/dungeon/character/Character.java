@@ -1,7 +1,7 @@
 package de.urbaniak.dungeon.character;
 import de.urbaniak.dungeon.space.Space;
 
-public class Character {
+public abstract class Character {
 
 	protected Space currentSpace;
 	protected String name;
