@@ -122,7 +122,7 @@ public class Player extends Character{
 			if(this.inventory.size() == 1) {
 				System.out.println("[Dungeon] " + this.inventory.get(0).getName() + " abgelegt.");
 				this.getCurrentSpace().addItem(this.inventory.get(0));
-				this.inventory.remove(this.inventory.get(0));
+				this.removeItem(this.inventory.get(0));
 			}
 			else{
 				Scanner scanner = new Scanner(System.in);
@@ -141,7 +141,7 @@ public class Player extends Character{
 						if (itemToDrop >= 1 && itemToDrop <= this.inventory.size()) {
 							System.out.println("[Dungeon] " + this.inventory.get(itemToDrop -1).getName() + " abgelegt.");
 							this.getCurrentSpace().addItem(this.inventory.get(itemToDrop -1));
-							this.inventory.remove(this.inventory.get(itemToDrop -1));
+							this.removeItem(this.inventory.get(itemToDrop -1));
 							break;
 						} else {
 							System.out.println("[Entscheidung] Ungueltige Eingabe");

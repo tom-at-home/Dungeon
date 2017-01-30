@@ -1,6 +1,6 @@
 package de.urbaniak.dungeon.items;
 
-public class Item {
+public abstract class Item {
 
     protected String name;
     protected boolean isEatable;

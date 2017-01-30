@@ -30,7 +30,7 @@ public class App {
 		
 		s_0_0 = new Space("Dungeons entrance");
 		s_0_1 = new Space("Bloody cave");
-		s_1_0 = new Space("Biology laboratory");
+		s_1_0 = new Space("Biomechanical laboratory");
 		s_1_1 = new Space("Stalagmite corridor");
 		s_1_2 = new Space("Old library");
 		s_2_0 = new Space("Cooling chamber");
@@ -116,7 +116,6 @@ public class App {
 		}
 
 	}
-
 
 	public void sayGoodbye(){
 		System.out.println("Du verlaesst nun Dungeon. Wir sehen uns wieder...");

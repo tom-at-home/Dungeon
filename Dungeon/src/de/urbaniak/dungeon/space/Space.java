@@ -61,27 +61,6 @@ public class Space {
 		}
 		
 	}
-	
-	public Space getSideSpace(String orientation){
-		
-		Space space = null;
-		
-		switch(orientation){
-		
-			case "west":	space = this.west;
-							break;
-			case "north":	space = this.north;
-							break;
-			case "east":	space = this.east;
-							break;
-			case "south":	space = this.south;
-							break;
-		
-		}
-		
-		return space;
-		
-	}
 
 	public void showEnvironment(){
 		System.out.println("[Dungeon] Dein aktueller Ort > " + this.getName());
