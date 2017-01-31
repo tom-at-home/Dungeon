@@ -207,6 +207,7 @@ public class Player extends Character{
 			for (Item item : this.inventory) {
 				String itemDesc = item.getName();
 				if(item instanceof Food){
+										
 					itemDesc += " (" + ((Food) item).getHp() + ")";
 				}
 				System.out.println(itemDesc);

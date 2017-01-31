@@ -137,7 +137,7 @@ public class Space {
     }
     
     public void removeItem(Item item) {
-    	this.items.remove(item);		
+    	this.items.remove(item);	
 	}
 	
 }
